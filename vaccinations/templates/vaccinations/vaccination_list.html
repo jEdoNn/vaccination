@@ -1,9 +1,9 @@
 <html>
 <head>
-  <title>Vaccination Tracking</title>
+  <title>Vaccination</title>
 </head>
 <body>
-    <h1>Vaccinations for Tracking</h1>
+    <h1>Vaccination status</h1>
     
     {% for vaccination in vaccinations %}
     <b> <a href="{% url 'vaccination_detail' id=vaccination.country %}">{{vaccination.country }}</a></b>
