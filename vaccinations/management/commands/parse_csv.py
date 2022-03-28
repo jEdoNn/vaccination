@@ -5,6 +5,7 @@ from django.db import models
 from django.core.management.base import BaseCommand, CommandError
 
 from vaccinations.models import Vaccination
+from vaccinations.models import Manufacturer
 
 #We use the command tools so that we gain access to our models and database connections
 #https://docs.djangoproject.com/en/3.1/howto/custom-management-commands/ 
@@ -17,6 +18,7 @@ class Command(BaseCommand):
 
         # drop the data from the table so that if we rerun the file, we don't repeat values
         Vaccination.objects.all().delete()
+        Manufacturer.objects.all().delete()
         print("table dropped successfully")
         # create table again
 
@@ -37,5 +39,23 @@ class Command(BaseCommand):
                 source_name = row[13],
                 )
                 vaccination.save()
+        
+        base_dir = Path(__file__).resolve().parent.parent.parent.parent
+        with open(str(base_dir) + '/vaccinations/test_data/country_vaccinations_by_manufacturer.csv', newline='') as f:
+            reader = csv.reader(f, delimiter=",")
+            next(reader) # skip the header line
+            for row in reader:
+                print(row)
+
+                location = row[0] 
+                print(location)
+                vaccination = Vaccination.objects.filter(country = location).first()
+                manufacturer = Manufacturer.objects.create(
+                date = row[1],
+                vaccine = row[2],
+                total_vaccinations =int(row[3]),
+                )
+                manufacturer.save()
+        
 
         print("data parsed successfully")
