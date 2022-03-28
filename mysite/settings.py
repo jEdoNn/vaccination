@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+a#sffd^-bnjf2mk1ohiwb-2zujcvqybhb+@z+ijp8$db__%%2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nobelfinance-ribbonprocess-8000.codio-box.uk']
+ALLOWED_HOSTS = ['nobelfinance-ribbonprocess-8000.codio-box.uk','stark-caverns-23777.herokuapp.com']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
