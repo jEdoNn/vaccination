@@ -6,7 +6,7 @@
     <h1>Vaccination status</h1>
     
     {% for vaccination in vaccinations %}
-    <b> <a href="{% url 'vaccination_detail' id=vaccination.country %}">{{vaccination.country }}</a></b>
+    <b> <a href="{% url 'vaccination_detail' str=vaccination.country %}">{{vaccination.country }}</a></b>
       Iso_code is {{ vaccination.iso_code }}. The inoculation dates are 
        {{vaccination.date}}, daily vaccination is {{ vaccination.daily_vaccinations }}. Vaccines for {{ vaccination.vaccines }}, 
        originally from {{ vaccination.source_name }}

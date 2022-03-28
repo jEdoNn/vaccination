@@ -13,6 +13,6 @@ class Vaccination(models.Model):
     source_name = models.TextField()
         
 
-    def __str__(self):
-        return self.country, self.iso_code, self.date, self.daily_vaccinations, self.vaccines, 
-        self.source_name
+def __str__(self):
+    return self.country, self.iso_code, self.date, self.daily_vaccinations, self.vaccines, 
+    self.source_name
