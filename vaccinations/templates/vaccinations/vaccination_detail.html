@@ -6,13 +6,14 @@
 
 <body>
     <h1>Country_vaccinations</h1>
+    {% for vaccination in manufacturer %}
     <p>Vaccination:
         <b>{{vaccination.location }}</b> |
-        {{vaccination.date}} |
-        {{vaccination.date}} |
+        {{vaccination.date}} 
         {{vaccination.vaccine}} |
         {{vaccination.total_vaccinations}}
     </p>
+    {% endfor %}
     <p>Collected from World Health Organization</p>
 </body>
 

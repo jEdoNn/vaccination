@@ -7,8 +7,8 @@ from django.utils import timezone
 class Vaccination(models.Model):
     country = models.TextField()
     iso_code = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    daily_vaccinations = models.IntegerField()
+    date = models.TextField()
+    daily_vaccinations = models.TextField()
     vaccines = models.TextField()
     source_name = models.TextField()
 
@@ -17,9 +17,9 @@ class Vaccination(models.Model):
 
 class Manufacturer(models.Model):
     location = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.TextField()
     vaccine = models.TextField()
-    total_vaccinations = models.IntegerField()
+    total_vaccinations = models.TextField()
 
     def __str__(self):
         return self.location, self.date, self.vaccine, self.total_vaccinations

@@ -7,5 +7,5 @@ def vaccination_list(request):
     return render(request, 'vaccinations/vaccination_list.html', {'vaccinations' : vaccinations})
 
 def vaccination_detail(request, str):
-    manufacturer = get_object_or_404(Manufacturer, str)
+    manufacturer = Manufacturer.objects.all()
     return render(request, 'vaccinations/vaccination_detail.html', {'manufacturer' : manufacturer})

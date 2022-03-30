@@ -28,7 +28,7 @@ class Command(BaseCommand):
             reader = csv.reader(f, delimiter=",")
             next(reader) # skip the header line
             for row in reader:
-                print(row)
+                
 
                 vaccination = Vaccination.objects.create(
                 country = row[0],
@@ -45,17 +45,18 @@ class Command(BaseCommand):
             reader = csv.reader(f, delimiter=",")
             next(reader) # skip the header line
             for row in reader:
-                print(row)
-
-                location = row[0] 
-                print(location)
-                vaccination = Vaccination.objects.filter(country = location).first()
-                manufacturer = Manufacturer.objects.create(
-                date = row[1],
-                vaccine = row[2],
-                total_vaccinations =int(row[3]),
-                )
-                manufacturer.save()
+                
+                if row[0]:
+                    location = row[0] 
+                    
+                    vaccination = Vaccination.objects.filter(country = location).first()
+                    manufacturer = Manufacturer.objects.create(
+                    location = vaccination,
+                    date = row[1],
+                    vaccine = row[2],
+                    total_vaccinations =row[3],
+                    )
+                    manufacturer.save()
         
 
         print("data parsed successfully")
