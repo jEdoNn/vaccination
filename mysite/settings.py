@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+a#sffd^-bnjf2mk1ohiwb-2zujcvqybhb+@z+ijp8$db__%%2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['optimalfarmer-baronspain-8000.codio-box.uk','gentle-refuge-41041.herokuapp.com']
+ALLOWED_HOSTS = ['optimalfarmer-baronspain-8000.codio-box.uk','teamwork-vaccination.herokuapp.com']
 
 
 # Application definition
