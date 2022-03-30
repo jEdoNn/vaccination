@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .models import Vaccination
 from .models import Manufacturer
 
@@ -7,5 +7,5 @@ def vaccination_list(request):
     return render(request, 'vaccinations/vaccination_list.html', {'vaccinations' : vaccinations})
 
 def vaccination_detail(request, str):
-    manufacturer = Manufacturer.objects.all()
+    manufacturer = Manufacturer.objects.filter(location=str)
     return render(request, 'vaccinations/vaccination_detail.html', {'manufacturer' : manufacturer})

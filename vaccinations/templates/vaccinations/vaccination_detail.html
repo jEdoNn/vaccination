@@ -8,6 +8,7 @@
     <h1>Country_vaccinations</h1>
     {% for vaccination in manufacturer %}
     <p>Vaccination:
+        {{vaccination.id}} |
         <b>{{vaccination.location }}</b> |
         {{vaccination.date}} 
         {{vaccination.vaccine}} |

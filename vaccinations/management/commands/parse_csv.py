@@ -40,23 +40,18 @@ class Command(BaseCommand):
                 )
                 vaccination.save()
         
-        base_dir = Path(__file__).resolve().parent.parent.parent.parent
         with open(str(base_dir) + '/vaccinations/test_data/country_vaccinations_by_manufacturer.csv', newline='') as f:
             reader = csv.reader(f, delimiter=",")
             next(reader) # skip the header line
             for row in reader:
                 
-                if row[0]:
-                    location = row[0] 
-                    
-                    vaccination = Vaccination.objects.filter(country = location).first()
-                    manufacturer = Manufacturer.objects.create(
-                    location = vaccination,
-                    date = row[1],
-                    vaccine = row[2],
-                    total_vaccinations =row[3],
-                    )
-                    manufacturer.save()
+                manufacturer = Manufacturer.objects.create(
+                location = row[0],
+                date = row[1],
+                vaccine = row[2],
+                total_vaccinations =row[3],
+                )
+                manufacturer.save()
         
 
         print("data parsed successfully")
