@@ -1,16 +1,39 @@
 <html>
 <head>
   <title>Vaccination</title>
+  <style>
+        body {
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+            font-family: "微软雅黑", "宋体", Arial;
+            background-image: url("https://images.cnblogs.com/cnblogs_com/sch01ar/1918630/o_2102060529292038307.jpg");
+            background-position: initial;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-origin: initial;
+            background-clip: initial;
+            height: 100%;
+            width: 100%;
+            min-width: 1200px;
+        }
+    </style>
 </head>
 <body>
     <h1>Vaccination status</h1>
-    
+    <table>
+        <tr>
+            <th><a href='/'>Back to the main page</a></th>
+        </tr>
+    </table><br>
     {% for vaccination in vaccinations %}
-    <b> <a href="{% url 'vaccination_detail' str=vaccination.country %}">{{vaccination.country }}</a></b>
+    <b> <a href="{% url 'vaccination_detail' str=vaccination.country %}">{{vaccination.id}} | {{vaccination.country }}</a></b>
       Iso_code is {{ vaccination.iso_code }}. The inoculation dates are 
        {{vaccination.date}}, daily vaccination is {{ vaccination.daily_vaccinations }}. Vaccines for {{ vaccination.vaccines }}, 
        originally from {{ vaccination.source_name }}
     </p>
     {% endfor %}
+    <div  style="text-align: center;" class="page-footer" style="position: absolute; bottom: 0px; display: block; width: 100%;">Copyright © 2022 Group 08 All Rights Reserved. </div>
 </body>
 </html>

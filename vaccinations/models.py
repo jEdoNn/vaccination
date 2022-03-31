@@ -23,6 +23,3 @@ class Manufacturer(models.Model):
 
     def __str__(self):
         return self.location, self.date, self.vaccine, self.total_vaccinations
-
-
-    

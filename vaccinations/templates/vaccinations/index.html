@@ -1,8 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Country_vaccinations</title>
+    <title>Main page</title>
     <style>
+        table {
+            width: 800px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            background-color: orange;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+        }
+
         body {
             font-size: 15px;
             padding: 0;
@@ -23,22 +38,15 @@
 </head>
 
 <body>
-    <h1>Country_vaccinations</h1>
-    <table>
-        <tr>
-            <th><a href='/'>Back to the main page</a></th>
-        </tr>
-    </table><br>
-    {% for vaccination in manufacturer %}
-    <p>Vaccination:
-        {{vaccination.id}} |
-        <b>{{vaccination.location }}</b> |
-        {{vaccination.date}}
-        {{vaccination.vaccine}} |
-        {{vaccination.total_vaccinations}}
+    <p style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Hello_Web_Series_%28Wordmark%29_Logo.png">
     </p>
-    {% endfor %}
-    <p>Collected from World Health Organization</p>
+    <h1>The Vaccination List</h1>
+    <p style="text-align: center;">
+
+        <a href={% url 'vaccination_list' %} style=“text-decoration：underline;”>Click for details</a>
+
+    </p>
     <div style="text-align: center;" class="page-footer"
         style="position: absolute; bottom: 0px; display: block; width: 100%;">Copyright © 2022 Group 08 All Rights
         Reserved. </div>
