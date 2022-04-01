@@ -1,7 +1,8 @@
 <html>
+
 <head>
-  <title>Vaccination</title>
-  <style>
+    <title>Vaccination</title>
+    <style>
         body {
             font-size: 15px;
             padding: 0;
@@ -20,6 +21,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Vaccination status</h1>
     <table>
@@ -29,11 +31,13 @@
     </table><br>
     {% for vaccination in vaccinations %}
     <b> <a href="{% url 'vaccination_detail' str=vaccination.country %}">{{vaccination.id}} | {{vaccination.country }}</a></b>
-      Iso_code is {{ vaccination.iso_code }}. The inoculation dates are 
-       {{vaccination.date}}, daily vaccination is {{ vaccination.daily_vaccinations }}. Vaccines for {{ vaccination.vaccines }}, 
-       originally from {{ vaccination.source_name }}
+    Iso_code is {{ vaccination.iso_code }}. The inoculation dates are
+    {{vaccination.date}}, daily vaccination is {{ vaccination.daily_vaccinations }}. Vaccines for {{vaccination.vaccines }}, originally from {{ vaccination.source_name }}
     </p><br>
     {% endfor %}
-    <div  style="text-align: center;" class="page-footer" style="position: absolute; bottom: 0px; display: block; width: 100%;">Copyright © 2022 Group 08 All Rights Reserved. </div>
+    <div style="text-align: center;" class="page-footer"
+        style="position: absolute; bottom: 0px; display: block; width: 100%;">Copyright © 2022 Group 08 All Rights
+        Reserved. </div>
 </body>
+
 </html>
